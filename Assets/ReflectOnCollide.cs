@@ -21,7 +21,7 @@ public class ReflectOnCollide : MonoBehaviour
         // check if obj is player object
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1000000), ForceMode2D.Force);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 100000000000000), ForceMode2D.Force);
         }
     }
 }

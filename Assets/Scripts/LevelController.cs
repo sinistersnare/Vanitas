@@ -18,7 +18,11 @@ public class LevelController : MonoBehaviour
     public void BeatLevel()
     {
         this.player.controlled = !this.player.controlled;
-        this.player.GetComponentInChildren<TrailRenderer>().enabled = !this.player.GetComponentInChildren<TrailRenderer>().enabled;
+        TrailRenderer renderer = this.player.GetComponent<TrailRenderer>();
+        if (renderer != null)
+        {
+            renderer.enabled = !renderer.enabled;
+        }
         this.beaten = !this.beaten;
 
         this.StartCoroutine(this.NextLevelCoroutine());
