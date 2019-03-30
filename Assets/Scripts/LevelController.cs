@@ -38,7 +38,7 @@ public class LevelController : MonoBehaviour
     private IEnumerator NextLevelCoroutine()
     {
         yield return new WaitForSeconds(this.beatLevelWaitTime);
-        SceneManager.SetActiveScene(SceneManager.CreateScene("SurrealScene"));
+        SceneManager.LoadScene("SurrealScene");
         
     }
 }
