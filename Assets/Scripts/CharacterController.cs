@@ -5,7 +5,12 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public float speed = 10;
-    public bool beaten;
+
+    /// <summary>
+    /// If this character is being controlled by an external script, 
+    /// and not the player with inputs.
+    /// </summary>
+    public bool controlled = false;
 
     private Rigidbody2D body;
 
@@ -13,15 +18,11 @@ public class CharacterController : MonoBehaviour
     {
         this.body = this.GetComponent<Rigidbody2D>();
     }
-    void Update()
-    {
-
-    }
 
 
     void LateUpdate()
     {
-        if (!this.beaten)
+        if (!this.controlled)
         {
             this.HandleMovement();
         }
@@ -30,7 +31,6 @@ public class CharacterController : MonoBehaviour
     public void MoveLocally(Vector3 moveDelta)
     {
         moveDelta = transform.TransformDirection(moveDelta);
-        if (this.beaten) print("MOVEDELTA::: " + moveDelta.ToString());
         body.MovePosition(this.transform.position + moveDelta);
     }
 

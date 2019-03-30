@@ -16,7 +16,7 @@ public class LevelController : MonoBehaviour
 
     public void BeatLevel()
     {
-        this.player.beaten = !this.player.beaten;
+        this.player.controlled = !this.player.controlled;
         this.player.GetComponentInChildren<TrailRenderer>().enabled = !this.player.GetComponentInChildren<TrailRenderer>().enabled;
         this.beaten = !this.beaten;
 
