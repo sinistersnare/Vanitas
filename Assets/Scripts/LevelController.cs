@@ -34,7 +34,6 @@ public class LevelController : MonoBehaviour
             this.player.MoveLocally(new Vector3(0, 20 * Time.deltaTime));
         }
     }
-
     private IEnumerator NextLevelCoroutine()
     {
         yield return new WaitForSeconds(this.beatLevelWaitTime);
