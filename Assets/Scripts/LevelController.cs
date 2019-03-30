@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
+    public string nextSceneName = "SurrealScene";
     public CharacterController player;
     public float beatLevelWaitTime = 4;
 
@@ -25,10 +26,6 @@ public class LevelController : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
-        //    this.BeatLevel();
-        //}
         if (beaten)
         {
             this.player.MoveLocally(new Vector3(0, 20 * Time.deltaTime));
@@ -37,7 +34,7 @@ public class LevelController : MonoBehaviour
     private IEnumerator NextLevelCoroutine()
     {
         yield return new WaitForSeconds(this.beatLevelWaitTime);
-        SceneManager.LoadScene("SurrealScene");
+        SceneManager.LoadScene(this.nextSceneName);
         
     }
 }
