@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SurrealScene.unity
     guid: 54d39a99f66cbee46987f1512017a9a7
+  - enabled: 1
+    path: Assets/Scenes/PlatformingScene.unity
+    guid: 7678250da016a4a459002efbf51ee74b
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: babe934ad579744979ab522c42f898e5
   m_configObjects: {}
