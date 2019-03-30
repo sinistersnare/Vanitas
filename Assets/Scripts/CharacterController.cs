@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public float speed = 10;
+    public bool beaten;
 
     private Rigidbody2D body;
 
@@ -16,15 +17,20 @@ public class CharacterController : MonoBehaviour
     {
 
     }
+
+
     void LateUpdate()
     {
-        this.HandleMovement();
-
+        if (!this.beaten)
+        {
+            this.HandleMovement();
+        }
     }
 
-    void MoveLocally(Vector3 moveDelta)
+    public void MoveLocally(Vector3 moveDelta)
     {
         moveDelta = transform.TransformDirection(moveDelta);
+        if (this.beaten) print("MOVEDELTA::: " + moveDelta.ToString());
         body.MovePosition(this.transform.position + moveDelta);
     }
 

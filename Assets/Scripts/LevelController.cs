@@ -6,10 +6,18 @@ public class LevelController : MonoBehaviour
 {
     public CharacterController player;
 
+    private bool beaten;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+    }
+
+    public void BeatLevel()
+    {
+        this.player.beaten = !this.player.beaten;
+        this.beaten = !this.beaten;
+
     }
 
     // Update is called once per frame
@@ -17,7 +25,11 @@ public class LevelController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            this.player.enabled = !this.player.enabled;
+            this.BeatLevel();
+        }
+        if (beaten)
+        {
+            this.player.MoveLocally(new Vector3(0, 20 * Time.deltaTime));
         }
     }
 }
